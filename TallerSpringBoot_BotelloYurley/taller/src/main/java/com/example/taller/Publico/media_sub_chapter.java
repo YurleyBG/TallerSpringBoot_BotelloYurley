@@ -12,7 +12,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class media_sub_chapter {
+public class Media_sub_chapter {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +25,7 @@ public class media_sub_chapter {
     private String Description ;
     private String summary;
     
+    
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="media_id",nullable = false)
     private Media_type mediaType;
@@ -32,11 +33,11 @@ public class media_sub_chapter {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="subchapter_id",nullable = false)
     private SubChapter subChapter;
-
-    public media_sub_chapter() {
+   
+    public Media_sub_chapter() {
     }
 
-    public media_sub_chapter(Long id, Timestamp created_at, Timestamp update_up, String description, String summary) {
+    public Media_sub_chapter(Long id, Timestamp created_at, Timestamp update_up, String description, String summary) {
         this.id = id;
         this.Created_at = created_at;
         this.Update_up = update_up;
@@ -83,6 +84,25 @@ public class media_sub_chapter {
     public void setSummary(String summary) {
         this.summary = summary;
     }
+
+    public Media_type getMediaType() {
+        return mediaType;
+    }
+
+    public void setMediaType(Media_type mediaType) {
+        this.mediaType = mediaType;
+    }
+
+    public SubChapter getSubChapter() {
+        return subChapter;
+    }
+
+    public void setSubChapter(SubChapter subChapter) {
+        this.subChapter = subChapter;
+    }
+
+  
+    
 
    
     

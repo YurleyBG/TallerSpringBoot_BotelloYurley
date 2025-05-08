@@ -17,8 +17,8 @@ public class Media_type {
     private String Descripcion ;
     
     @OneToMany(mappedBy = "mediaType",fetch= FetchType.EAGER)
-    private List<SubChapter> subChapters;
-
+    private List<Media_sub_chapter> media_sub_chapter;
+    
     
     public Media_type() {
     }
@@ -44,13 +44,17 @@ public class Media_type {
         this.Descripcion = descripcion;
     }
 
-    public List<SubChapter> getSubChapters() {
-        return subChapters;
+    public List<Media_sub_chapter> getMedia_sub_chapter() {
+        return media_sub_chapter;
     }
 
-    public void setSubChapters(List<SubChapter> subChapters) {
-        this.subChapters = subChapters;
+    public void setMedia_sub_chapter(List<Media_sub_chapter> media_sub_chapter) {
+        this.media_sub_chapter = media_sub_chapter;
     }
+
+   
+
+   
 
 
 

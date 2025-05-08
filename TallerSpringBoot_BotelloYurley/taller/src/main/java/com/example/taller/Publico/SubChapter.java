@@ -2,14 +2,16 @@ package com.example.taller.Publico;
 
 
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-
 import java.util.List;
 
 @Entity
@@ -22,8 +24,12 @@ public class SubChapter {
     @Column(name="summary",nullable = false)
     private String summmary;
     
-    @OneToMany(mappedBy = "subChapter",fetch= FetchType.EAGER)
-    private List<Media_type> mediaType ;
+    @OneToMany(mappedBy ="subChapter",fetch= FetchType.EAGER)
+    private List<Media_sub_chapter> Media_sub_chapter ;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="chapter_id",nullable = false)
+    private Chapters chapters;
     
     public SubChapter() {
     }
@@ -58,13 +64,26 @@ public class SubChapter {
         this.summmary = summmary;
     }
 
-    public List<Media_type> getMediaType() {
-        return mediaType;
+    public List<Media_sub_chapter> getMedia_sub_chapter() {
+        return Media_sub_chapter;
     }
 
-    public void setMediaType(List<Media_type> mediaType) {
-        this.mediaType = mediaType;
+    public void setMedia_sub_chapter(List<Media_sub_chapter> media_sub_chapter) {
+        Media_sub_chapter = media_sub_chapter;
     }
+
+    public Chapters getChapters() {
+        return chapters;
+    }
+
+    public void setChapters(Chapters chapters) {
+        this.chapters = chapters;
+    }
+
+    
+
+    
+    
 
 
 
